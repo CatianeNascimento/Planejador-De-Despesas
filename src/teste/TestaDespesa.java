@@ -1,6 +1,7 @@
 package teste;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TestaDespesa {
@@ -11,7 +12,7 @@ public class TestaDespesa {
 
 		int opcao, tipoDespesa;
 		String nomeDespesa;
-		double valorDespesa;
+		double valorDespesa,montante;
 
 		do {
 			System.out.println("\t-----------------------------");
@@ -29,11 +30,20 @@ public class TestaDespesa {
 			System.out.println("\tEntre com a opção desejada:  ");
 			System.out.println("\t                             ");
 			System.out.println("\t                             ");
-			opcao = leia.nextInt();
+			try {
+				opcao = leia.nextInt();
+				
+			}catch(InputMismatchException e) {
+				System.err.println("Digite apenas valores inteiros!");
+				leia.nextLine();
+				
+				opcao =0;
+			}
+			
 
 			switch (opcao) {
 			case 1:
-				System.out.println("1 - Cadastrar Despesas\n\n");
+				System.out.println("1 - Cadastrar Despesas\n");
 				System.out.println("Escolha o tipo da Despesa: ");
 				System.out.println("1 - Viagem");
 				System.out.println("2 - Contas");
@@ -55,14 +65,14 @@ public class TestaDespesa {
 				break;
 
 			case 2:
-				System.out.println("2 - Listar todas as Despesas\n\n");
+				System.out.println("2 - Listar todas as Despesas\n");
 				despesa.visualizarDespesa();
 
 				keyPress();
 				break;
 
 			case 3:
-				System.out.println("3 - Alterar Despesas\n\n ");
+				System.out.println("3 - Alterar Despesas\n");
 				System.out.println("Digite o nome de despesa que deseja alterar");
 				leia.skip("\\R?");
 				nomeDespesa = leia.nextLine();
@@ -91,7 +101,7 @@ public class TestaDespesa {
 				break;
 
 			case 4:
-				System.out.println("4 - Apagar Despesas\n\n");
+				System.out.println("4 - Apagar Despesas\n");
 				despesa.excluirDespesa();
 
 				keyPress();
@@ -99,7 +109,10 @@ public class TestaDespesa {
 
 			case 5:
 				System.out.println("Calcular despesa:");
-
+				System.out.println("Digite o valor do seu montante de dinheiro: ");
+				montante = leia.nextDouble();
+				
+				despesa.calculaDespesa(montante);
 				keyPress();
 				break;
 
@@ -111,7 +124,7 @@ public class TestaDespesa {
 				break;
 
 			default:
-				System.out.println("Opção Invalida!");
+				System.err.println("Opção Invalida! Tente novamente");
 				keyPress();
 				break;
 
@@ -121,7 +134,7 @@ public class TestaDespesa {
 
 	public static void keyPress() {
 		try {
-			System.out.println("Pressione a tecla Enter para Continuar a utilizar nosso serviço...");
+			System.out.println("\nPressione a tecla Enter para Continuar a utilizar nosso serviço...\n");
 			System.in.read();
 		} catch (IOException e) {
 			System.out.println("Utilize a tecla Enter para continuar!");
