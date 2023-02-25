@@ -2,6 +2,7 @@ package teste;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Despesa {
 	ArrayList<String> nomeDespesa = new ArrayList<String>();
@@ -16,8 +17,6 @@ public class Despesa {
 	public ArrayList<String> getNomeDespesa() {
 		return nomeDespesa;
 	}
-
-
 
 	public void setNomeDespesa(String nomeDespesa) {
 		this.nomeDespesa.add(nomeDespesa);
@@ -51,12 +50,53 @@ public class Despesa {
 	
 	//Marcos
 	public void visualizarDespesa() {
-		
+		for(int i=0;i<nomeDespesa.size();i++) {
+			System.out.println("Nome da Despesa: "+nomeDespesa.get(i)+"\tValor Despesa: "+valorDespesa.get(i)+"\tTipo Despesa: "+tipoDespesa.get(i));
+		}
 	}
 	
 	//Joas
-	public void cadastrarDespesa() {
+	public void cadastrarDespesa(String nomeDespesa, int tipoDespesa,double valorDespesa) {
+		switch(tipoDespesa) {
+		case 1:
+			setTipoDespesa("Viagem");
+			setNomeDespesa(nomeDespesa);
+			setValorDespesa(valorDespesa);
+			System.out.println("Despesa cadastrada com sucesso! \n");
+		break;
 		
+		case 2:
+			setTipoDespesa("Contas");
+			setNomeDespesa(nomeDespesa);
+			setValorDespesa(valorDespesa);
+			System.out.println("Despesa cadastrada com sucesso! \n");
+		break;
+		
+		case 3:
+			setTipoDespesa("Lazer");
+			setNomeDespesa(nomeDespesa);
+			setValorDespesa(valorDespesa);
+			System.out.println("Despesa cadastrada com sucesso! \n");
+		break;
+		
+		case 4:
+			setTipoDespesa("Compras");
+			setNomeDespesa(nomeDespesa);
+			setValorDespesa(valorDespesa);
+			System.out.println("Despesa cadastrada com sucesso! \n");
+		break;
+		
+		case 5:
+			setTipoDespesa("Outros");
+			setNomeDespesa(nomeDespesa);
+			setValorDespesa(valorDespesa);
+			System.out.println("Despesa cadastrada com sucesso! \n");
+		break;
+		
+		default:
+			System.err.println("Opção inválida, entre novamente com os dados");
+		break;
+		}
 	}
 	
 	//Thiago
