@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class TestaDespesa {
-	
+
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
 		Despesa despesa = new Despesa();
-		
-		int opcao,tipoDespesa;
+
+		int opcao, tipoDespesa;
 		String nomeDespesa;
 		double valorDespesa;
 
@@ -41,53 +41,75 @@ public class TestaDespesa {
 				System.out.println("4 - Compras");
 				System.out.println("5 - Outros");
 				tipoDespesa = leia.nextInt();
-				
+
 				System.out.println("Digite o nome da despesa: ");
 				leia.skip("\\R?");
 				nomeDespesa = leia.nextLine();
-				
+
 				System.out.println("Digite o valor da despesa: ");
 				valorDespesa = leia.nextDouble();
-				
-				despesa.cadastrarDespesa(nomeDespesa,tipoDespesa,valorDespesa);
-				
+
+				despesa.cadastrarDespesa(nomeDespesa, tipoDespesa, valorDespesa);
+
 				keyPress();
 				break;
-				
+
 			case 2:
 				System.out.println("2 - Listar todas as Despesas\n\n");
 				despesa.visualizarDespesa();
-				
+
 				keyPress();
 				break;
-				
+
 			case 3:
 				System.out.println("3 - Alterar Despesas\n\n ");
-				despesa.alterarDespesa();
-				
+				System.out.println("Digite o nome de despesa que deseja alterar");
+				leia.skip("\\R?");
+				nomeDespesa = leia.nextLine();
+				despesa.verificaDespesa(nomeDespesa);
+
+				if (despesa.verificaDespesa(nomeDespesa) == true) {
+					System.out.println("Digite o novo nome da despesa");
+					leia.skip("\\R?");
+					nomeDespesa = leia.nextLine();
+					System.out.println("Digite o novo valor da despesa");
+					valorDespesa = leia.nextDouble();
+					System.out.println("Escolha o tipo da Despesa que deseja alterar: ");
+					System.out.println("1 - Viagem");
+					System.out.println("2 - Contas");
+					System.out.println("3 - Lazer");
+					System.out.println("4 - Compras");
+					System.out.println("5 - Outros");
+					tipoDespesa = leia.nextInt();
+
+					despesa.alterarDespesa(nomeDespesa, valorDespesa, tipoDespesa);
+				} else {
+					System.out.println("Despesa não encontrada! Tente Novamente");
+				}
+
 				keyPress();
 				break;
-				
+
 			case 4:
 				System.out.println("4 - Apagar Despesas\n\n");
 				despesa.excluirDespesa();
-				
+
 				keyPress();
 				break;
-				
+
 			case 5:
 				System.out.println("Calcular despesa:");
-				
+
 				keyPress();
 				break;
-				
+
 			case 6:
 				System.out.println("\nObrigada por utilizar nosso planejador de despesas!");
 				leia.close();
 				System.exit(0);
-				
+
 				break;
-				
+
 			default:
 				System.out.println("Opção Invalida!");
 				keyPress();
@@ -96,12 +118,12 @@ public class TestaDespesa {
 			} // fim switch
 		} while (opcao != 5);
 	}
-	
+
 	public static void keyPress() {
 		try {
 			System.out.println("Pressione a tecla Enter para Continuar a utilizar nosso serviço...");
 			System.in.read();
-		}catch(IOException e) {
+		} catch (IOException e) {
 			System.out.println("Utilize a tecla Enter para continuar!");
 		}
 	}
