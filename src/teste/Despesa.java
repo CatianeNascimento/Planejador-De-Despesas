@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Despesa {
 	int posicao;
-	double soma;
+	double soma=0;
 	static ArrayList<String> nomeDespesa = new ArrayList<String>();
 	static ArrayList<String> tipoDespesa = new ArrayList<String>();
 	static ArrayList<Double> valorDespesa = new ArrayList<Double>();
@@ -41,10 +41,17 @@ public class Despesa {
 
 	// Marcos - Listar Despesas
 	public void visualizarDespesa() {
-		for (int i = 0; i < nomeDespesa.size(); i++) {
-			System.out.println("Nome da Despesa: " + nomeDespesa.get(i) + "\tValor Despesa: " + this.formataMoeda(valorDespesa.get(i))
-					+ "\tTipo Despesa: " + tipoDespesa.get(i));
-		}
+		if(this.nomeDespesa.isEmpty()) {
+            System.out.println("A lista de Despesa esta vazia !");
+        }else {
+            System.out.println("A lista de Despesa:");
+            for (int i = 0;i < this.nomeDespesa.size();i++) {
+
+            System.out.println("Nome Despesa: " + this.nomeDespesa.get(i) + " | Tipo da Despesa: " + this.tipoDespesa.get(i) + " | Valor da Despesa: " + this.formataMoeda(valorDespesa.get(i)) );
+            System.out.println();
+        }
+
+        }
 	}
 
 	// Joas - Cadastrar Despesa
@@ -167,8 +174,8 @@ public class Despesa {
 	
 	//Verifica o valor final sobrante/faltante para pagamento das despesas
 	public void calculaDespesa(double montante) {
-		for(double i:valorDespesa) {
-			soma+=i;
+		for(int i=0;i<valorDespesa.size();i++) {
+			soma+=valorDespesa.get(i);
 		}
 		
 		if(montante-soma>0) {
