@@ -102,8 +102,11 @@ public class TestaDespesa {
 
 			case 4:
 				System.out.println("4 - Apagar Despesas\n");
-				despesa.excluirDespesa();
-
+				System.out.println("Digite o nome da despesa que deseja excluir");
+				leia.skip("\\R?");
+				nomeDespesa = leia.nextLine();
+				despesa.excluirDespesa(nomeDespesa);
+				
 				keyPress();
 				break;
 

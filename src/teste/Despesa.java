@@ -92,8 +92,18 @@ public class Despesa {
 	}
 
 	// Thiago - Excluir Despesa
-	public void excluirDespesa() {
-
+	public void excluirDespesa(String apagarDespesa) {
+		boolean verificado = verificaDespesa(apagarDespesa);
+			if(verificado == true) {
+			nomeDespesa.remove(posicao);
+			valorDespesa.remove(posicao);
+			tipoDespesa.remove(posicao);
+			
+			System.out.println("A Despesa "+apagarDespesa+" foi excluida com sucesso!");
+				
+			}else {
+				System.out.println("A despesa não foi encontrada.");
+			}
 	}
 
 	// Bia - Editar Despesa
