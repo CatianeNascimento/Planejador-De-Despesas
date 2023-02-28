@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import teste.Despesa;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -122,7 +123,7 @@ public class Tela extends javax.swing.JFrame {
         inicio.add(btnIniciar);
         btnIniciar.setBounds(270, 40, 110, 40);
 
-        lblImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\csnas\\OneDrive\\Imagens\\img.jpg")); // NOI18N
+        lblImg.setIcon(new ImageIcon("C:\\Users\\csnas\\eclipse-workspace\\Planejador-De-Despesas\\src\\view\\img.jpg")); // NOI18N
         lblImg.setText("jLabel2");
         inicio.add(lblImg);
         lblImg.setBounds(70, 40, 492, 332);
@@ -202,7 +203,7 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\csnas\\OneDrive\\Imagens\\7849.jpg")); // NOI18N
+        jLabel1.setIcon(new ImageIcon("C:\\Users\\csnas\\eclipse-workspace\\Planejador-De-Despesas\\src\\view\\7849.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -476,7 +477,7 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\csnas\\OneDrive\\Imagens\\6962043.jpg")); // NOI18N
+        jLabel3.setIcon(new ImageIcon("C:\\Users\\csnas\\eclipse-workspace\\Planejador-De-Despesas\\src\\view\\6962043.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
