@@ -24,8 +24,8 @@ dentro do que foi planejado.
 - Java e Java Swing
 
 ## Como Acessar Nosso Projeto
-O projeto foi desenvolvido nas IDE's NetBeans e Eclipse. 
-Utilizando o NetBeans não é necessário nenhuma outra instalação
+O projeto foi desenvolvido nas IDE's NetBeans e Eclipse. <br>
+Utilizando o NetBeans não é necessário nenhuma outra instalação. <br>
 Para conseguir visualizar a parte do front-End no Eclipe é necessário adicionar o plug-in WindowsBuider, no link abaixo é possível ver o passo a passo fazer o dowload:
 <br><br>
 <a href="https://www.eclipse.org/windowbuilder/download.php">Instalação Plug-in WindowsBuider</a> 
